@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+    <div class="card" style="display: flex; justify-content: center">
+        <p:dataTable var="inventory information" value="#{inventoryAppBean.listOfInventoryy}" allowUnsorting="true" sortMode="single">
+            <p:column headerText="Id" filterable="false" field="id" >
+                <h:outputText value="#{inventoryAppBean.id}"/>
+            </p:column>
+
+            <p:column headerText="Name" filterable="false" field="name" >
+                <h:outputText value="#{inventoryAppBean.name}"/>
+            </p:column>
+
+            <p:column headerText="Sport" filterable="false" field="spott" >
+                <h:outputText value="#{inventoryAppBean.spott}"/>
+            </p:column>
+
+            <p:column headerText="Number Of Quantity" filterable="false" field="numberOfQuantity" >
+                <h:outputText value="#{inventoryAppBean.numberOfQuantity}"/>
+            </p:column>
+
+            <p:column headerText="Price per unit" filterable="false" field="pricePerUnit" >
+                <h:outputText value="#{inventoryAppBean.pricePerUnit}"/>
+            </p:column>
+
+            <p:column headerText="Inventory Date" filterable="false" field="inventoryDate" >
+                <h:outputText value="#{inventoryAppBean.inventoryDate}"/>
+            </p:column>
+        </p:dataTable>
+    </div>
+    </h:form>
+    <h:form>
+        <div class="card" style="display: flex; justify-content: center">
+            <div class="p-field" style="margin: 2em">
+                <p:outputLabel for="name" style="margin-right: 1em">Inventory name: </p:outputLabel>
+                <p:inputText id="name" type="text" value="#{inventoryAppBean.name}"/>
+                <p:message for="@previous"/>
+            </div>
+            <div class="p-field" style="margin: 2em">
+                <p:outputLabel for="sportt" style="margin-right: 1em">Sport: </p:outputLabel>
+                <p:inputText id="sportt" type="text" value="#{inventoryAppBean.spott}"/>
+                <p:message for="@previous"/>
+            </div>
+            <div class="p-field" style="margin: 2em">
+                <p:outputLabel for="numberOfQuantity" style="margin-right: 1em">Number Of Quantity: </p:outputLabel>
+                <p:inputText id="numberOfQuantity" type="text" value="#{inventoryAppBean.numberOfQuantity}"/>
+                <p:message for="@previous"/>
+
+            </div>
+            <div class="p-field" style="margin: 2em">
+                <p:outputLabel for="pricePerUnit" style="margin-right: 1em">Number Of Price per Unit: </p:outputLabel>
+                <p:inputText id="pricePerUnit" type="text" value="#{inventoryAppBean.pricePerUnit}"/>
+                <p:message for="@previous"/>
+            </div>
+
+            <div class="p-field" style="margin: 2em">
+                <p:commandButton style="margin: 2em" type="submit" action="#{inventoryAppBean.addInventory}"
+                                 value="Add Items to the Inventory" ajax="false" validateClient="true"
+                                 icon="pi pi-check" iconPos="right"/>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>

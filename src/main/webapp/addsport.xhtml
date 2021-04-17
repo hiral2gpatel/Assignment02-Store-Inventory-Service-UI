@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+
+<h:body>
+    <h:form>
+        <div class="card">
+            <p:dataTable var="store" value="#{storeAppBean.stores}" allowUnsorting="true" sortMode="single">
+                    <p:column headerText="Store Id" filterable="false" field="id" >
+                        <h:outputText value="#{store.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Store Name" filterable="false" field="name" >
+                        <h:outputText value="#{store.name}"/>
+                    </p:column>
+
+                    <p:column headerText="Store Location" filterable="false" field="location" >
+                        <h:outputText value="#{store.location}"/>
+                    </p:column>
+                </p:dataTable>
+        </div>
+    </h:form>
+
+                <h:form>
+                    <div class="card" style="display: flex; justify-content: center">
+                    <div class="p-field" style="margin: 2em">
+                        <p:outputLabel for="name" style="margin-right: 1em">Store name: </p:outputLabel>
+                        <p:inputText id="name" type="text" value="#{storeAppBean.name}"/>
+                        <p:message for="@previous"/>
+                    </div>
+                    <div class="p-field" style="margin: 2em">
+                        <p:outputLabel for="location" style="margin-right: 1em">Store Location: </p:outputLabel>
+                        <p:inputText id="location" type="text" value="#{storeAppBean.location}"/>
+                        <p:message for="@previous"/>
+                    </div>
+                        <div class="p-field" style="margin: 2em">
+                            <p:outputLabel for="inventories" style="margin-right: 1em">Store Inventories: </p:outputLabel>
+                            <p:inputText id="inventories" type="text" value="#{storeAppBean.listOfInventoryy}"/>
+                            <p:message for="@previous"/>
+                        </div>
+
+
+                    <div class="p-field" style="margin: 2em">
+                        <p:commandButton style="margin: 2em" type="submit" action="#{storeAppBean.addToList}"
+                                         value="Add Items to the Store" ajax="false" validateClient="true"
+                                         icon="pi pi-check" iconPos="right"/>
+                    </div>
+                </div>
+                </h:form>
+</h:body>
+</html>
